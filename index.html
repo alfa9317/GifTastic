@@ -5,26 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="assets/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Alef|Bangers|Chakra+Petch|Monoton|Press+Start+2P&display=swap" rel="stylesheet">
+    <title>GifTastic</title>
 </head>
 
 <body>
     <div class="container">
-        <h1>Gif Search</h1>
-    
-        <!-- Rendered Buttons will get Dumped Here  -->
+        <h1 id="title">GifTastic</h1>
         <div id="buttons-view"></div>
-    
         <form id="gif-form">
-            <label for="gifCat-input">Add a Gif, Yo!</label>
+            <label for="gifCat-input" class="textLabel">Add a new category</label>
             <input type="text" id="gifCat-input">
             <br>
-    
-            <!-- Button triggers new movie to be added -->
-            <input id="add-gifCat" type="submit" value="Add a Movie, Yo!">
+            <input id="add-gifCat" type="submit" value="Create category">
         </form>
-    
-        <!-- Movies will Get Dumped Here -->
         <div id="gifs-view"></div>
     </div>   
 
