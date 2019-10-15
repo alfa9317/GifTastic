@@ -18,7 +18,7 @@ function displayGifs(){
           var gifDiv = $("<div class='gif'>");
           var p = $("<p>").text("Rating: " + results[i].rating);
           var gifImage = $("<img>");
-          gifImage.attr("src", results[i].images.fixed_height.url);
+          gifImage.attr("src", results[i].images.fixed_height_still.url);
           gifDiv.append(p);
           gifDiv.append(gifImage);
           $("#gifs-view").prepend(gifDiv);
