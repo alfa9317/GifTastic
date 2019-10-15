@@ -1,4 +1,6 @@
+
 var categories = ["superman","pikachu","ferrari","crazy doctor","cats","dogs","love","breaking bad"];
+
 
 
 function displayGifs(){
@@ -15,10 +17,14 @@ function displayGifs(){
         var results = response.data;
 
         for (var i = 0; i < results.length; i++) {
-          var gifDiv = $("<div class='gif'>");
+          var gifDiv = $("<div class='gifContainer'>");
           var p = $("<p>").text("Rating: " + results[i].rating);
           var gifImage = $("<img>");
           gifImage.attr("src", results[i].images.fixed_height_still.url);
+          gifImage.attr("data-still",results[i].images.fixed_height_still.url)
+          gifImage.attr("data-animate",results[i].images.fixed_height.url)
+          gifImage.attr("data-state","still");
+          gifImage.addClass("gif")
           gifDiv.append(p);
           gifDiv.append(gifImage);
           $("#gifs-view").prepend(gifDiv);
@@ -39,6 +45,17 @@ function renderButtons() {
     
   };
 
+  function animate() {
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+    }
+  };
+
   $("#add-gifCat").on("click", function(event) {
     event.preventDefault();
     var gifCategory = $("#gifCat-input").val().trim();
@@ -49,6 +66,7 @@ function renderButtons() {
   });
 
   $(document).on("click", ".gifs-btn", displayGifs);
+  $(document).on("click", ".gif",animate);
   renderButtons();
 
   
